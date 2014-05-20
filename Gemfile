@@ -35,6 +35,8 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'pry'
+  
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
