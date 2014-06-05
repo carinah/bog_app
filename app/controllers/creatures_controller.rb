@@ -7,6 +7,12 @@ class CreaturesController < ApplicationController
 	def new 
 	end
 
+	def edit
+		creature_id = params[:id]
+		@creature = Creature.find(creature_id)
+		render :edit 
+	end 
+
 	def create
 		creature_params = params.require(:creature).permit(:name, :description)
 		# creature_params creates a hash with sanitized data. "require" requires "creature" to be a key in 
@@ -19,9 +25,6 @@ class CreaturesController < ApplicationController
 		# redirect to index to show all creatures 
 	end  
 
-	def edit
-	end 
-
 	def show 
 		creature_id = params[:id]
 		@creature = Creature.find(creature_id)
@@ -29,6 +32,14 @@ class CreaturesController < ApplicationController
 	end 
 
 	def update 
+		creature_id = params[:id]
+		@creature = Creature.find(creature_id)
+		# get updated data
+		updated_creature = params.require(:creature).permit(:name, :description) 
+		# update the creature
+		@creature.update_attributes(updated_creature)
+		# redirect to show 
+		redirect_to "/index"
 	end 
 
 	def delete 
