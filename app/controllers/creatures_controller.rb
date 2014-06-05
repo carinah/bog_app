@@ -19,4 +19,21 @@ class CreaturesController < ApplicationController
 		# redirect to index to show all creatures 
 	end  
 
+	def edit
+	end 
+
+	def show 
+		creature_id = params[:id]
+		@creature = Creature.find(creature_id)
+		render :show 
+	end 
+
+	def update 
+	end 
+
+	def delete 
+	end 
+
+
+
 end 
