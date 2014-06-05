@@ -12,7 +12,9 @@ BogApp::Application.routes.draw do
 
   put "/creatures/:id", to: "creatures#update"
 
-  delete "/creatures/:id/delete", to: "creatures#delete"
+  get "/creatures/:id/delete", to: "creatures#delete"
+
+  delete "/creatures/:id", to: "creatures#destroy"
 
 end
 

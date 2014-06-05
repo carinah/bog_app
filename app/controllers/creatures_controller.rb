@@ -39,10 +39,21 @@ class CreaturesController < ApplicationController
 		# update the creature
 		@creature.update_attributes(updated_creature)
 		# redirect to show 
-		redirect_to "/index"
+		redirect_to "/show"
 	end 
 
 	def delete 
+		creature_id = params[:id]
+		@creature = Creature.find(creature_id)
+		render :delete 
+	end 
+
+	def destroy 
+		creature_id = params[:id]
+		@creature = Creature.find(creature_id)
+		Creature.delete(creature_id)
+
+		redirect_to "/creatures"
 	end 
 
 
